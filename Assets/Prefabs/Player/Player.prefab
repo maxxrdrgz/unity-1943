@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1756653024662121371}
   - component: {fileID: 1756653024662121372}
-  - component: {fileID: 1756653024662121370}
   - component: {fileID: 630849926}
   m_Layer: 0
   m_Name: Player
@@ -81,47 +80,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &1756653024662121370
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756653024662121373}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.026819305, y: -1.3622211}
-  - {x: -0.054874018, y: -1.2929192}
-  - {x: -0.6496095, y: -1.2728531}
-  - {x: -0.6357288, y: -0.84115577}
-  - {x: -0.6216545, y: -0.81769854}
-  - {x: -0.19175488, y: -0.82513326}
-  - {x: -0.19175488, y: -0.7922935}
-  - {x: -0.2980673, y: 0.04739602}
-  - {x: -0.9284734, y: 0.059513245}
-  - {x: -1.0691757, y: 0.1827979}
-  - {x: -1.0652163, y: 0.682249}
-  - {x: -0.3408702, y: 0.730582}
-  - {x: -0.16529599, y: 1.0365216}
-  - {x: 0.021531977, y: 1.2300689}
-  - {x: 0.22663234, y: 1.0087473}
-  - {x: 0.39159572, y: 0.7234835}
-  - {x: 1.1301326, y: 0.7086427}
-  - {x: 1.1337783, y: 0.20656265}
-  - {x: 0.99111706, y: 0.053585365}
-  - {x: 0.34794962, y: 0.052857395}
-  - {x: 0.23287334, y: -0.82432026}
-  - {x: 0.7120935, y: -0.85633904}
-  - {x: 0.7067064, y: -1.2706287}
-  - {x: 0.07769465, y: -1.2744887}
-  - {x: 0.026699303, y: -1.3627734}
 --- !u!50 &630849926
 Rigidbody2D:
   serializedVersion: 4
