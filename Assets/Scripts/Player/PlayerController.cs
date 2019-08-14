@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 2f;
-    public GameObject bullet;
+    [SerializeField]
+    private GameObject bullet;
     private bool canshoot = true;
 
     // Update is called once per frame
@@ -38,7 +40,15 @@ public class PlayerController : MonoBehaviour
         bulletPos.y += 0.5f;
         Instantiate(bullet, bulletPos, Quaternion.identity);
         canshoot = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         canshoot = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy Bullet"){
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
