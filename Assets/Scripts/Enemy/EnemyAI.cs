@@ -6,7 +6,8 @@ public class EnemyAI : MonoBehaviour
 {
     private float force = -2f;
     private bool canshoot = true;
-    public GameObject bullet;
+    [SerializeField]
+    private GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,8 +39,15 @@ public class EnemyAI : MonoBehaviour
         bulletPos.y -= 0.7f;
         Instantiate(bullet, bulletPos, Quaternion.identity);
         canshoot = false;
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
         canshoot = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Player Bullet"){
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
 
 }
