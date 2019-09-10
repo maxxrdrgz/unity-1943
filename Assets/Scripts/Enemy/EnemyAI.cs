@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
         Detects collision with the player. If true, both the player and this
         gameobject gets destroyed.
 
-        @params {Collider2D} The other Collider2D involved in this collision.
+        @params {Collision2D} The Collision2D data associated with this collision.
     */
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player"){
