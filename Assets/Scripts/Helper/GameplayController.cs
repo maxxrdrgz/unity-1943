@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour
 {
+    /** 
+        Reloads the active scene
+    */
     public void ResetGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
