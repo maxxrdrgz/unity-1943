@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     private bool canshoot = true;
     [SerializeField]
     private GameObject bullet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,15 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-//        GetComponent<Rigidbody2D>().velocity = new Vector2(0, force);
         Shoot();
     }
 
+    /** 
+        Detects collision with the player. If true, both the player and this
+        gameobject gets destroyed.
+
+        @params {Collider2D} The other Collider2D involved in this collision.
+    */
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player"){
             Destroy(other.gameObject);
@@ -28,12 +34,22 @@ public class EnemyAI : MonoBehaviour
         }    
     }
 
+    /** 
+        Checks the canshoot boolean, and if true, starts the resetshooter()
+        coroutine.
+    */
     void Shoot(){
         if(canshoot){
             StartCoroutine(ResetShooter());
         }
     }
 
+    /** 
+        Instantiates a bullet gameobject and resets the canshoot boolean
+
+        @returns {IEnumerator} returns a time delay of a random range between
+        1 and 3 seconds.
+    */
     IEnumerator ResetShooter(){
         Vector2 bulletPos = transform.position;
         bulletPos.y -= 0.7f;
@@ -43,6 +59,12 @@ public class EnemyAI : MonoBehaviour
         canshoot = true;
     }
 
+    /** 
+        Detects collision with the players bullet. If true, destorys this
+        gameobject and the bullet gameobject
+
+        @params {Collider2D} The other Collider2D involved in this collision.
+    */
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player Bullet"){
             Destroy(gameObject);
