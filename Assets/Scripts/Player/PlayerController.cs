@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     private bool canshoot = true;
 
     // Update is called once per frame
+    /** 
+        Gets input from player and moves them left or right, also calls the
+        Shoot function
+    */
     void FixedUpdate()
     {
         float h = Input.GetAxisRaw("Horizontal");   
@@ -27,6 +31,10 @@ public class PlayerController : MonoBehaviour
         Shoot();
     }
 
+    /** 
+        Checks the canshoot boolean and detects input from the player, starts
+        the resetshooter coroutine if canshoot and player pressed the spacebar
+    */
     void Shoot(){
         if(canshoot){
             if(Input.GetKeyDown(KeyCode.Space)){
@@ -35,6 +43,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /** 
+        Instantiates a bullet gameobject and resets the canshoot boolean
+
+        @returns {IEnumerator} returns a time delay of 0.3 seconds
+    */
     IEnumerator ResetShooter(){
         Vector2 bulletPos = transform.position;
         bulletPos.y += 0.5f;
@@ -44,6 +57,12 @@ public class PlayerController : MonoBehaviour
         canshoot = true;
     }
 
+    /** 
+        Detects a collision with the enemy bullet or the enemy and destroys this
+        gameobject and reloads the current acive scene.
+
+        @params {Collider2D} The other Collider2D involved in this collision.
+    */
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy Bullet"){
             Destroy(gameObject);
