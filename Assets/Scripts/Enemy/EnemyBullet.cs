@@ -11,6 +11,11 @@ public class EnemyBullet : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, force);
     }
     
+    /** 
+        Upon any and all collision, this gameobject is destroyed.
+
+        @params {Collision2D} The Collision2D data associated with this collision.
+    */
     private void OnCollisionEnter2D(Collision2D other) {
         Destroy(gameObject);
     }
